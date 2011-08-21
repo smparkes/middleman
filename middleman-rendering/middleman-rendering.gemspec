@@ -26,7 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency("sass", ["~> 3.1.7"])
   s.add_dependency("compass", ["~> 0.11.3"])
   s.add_dependency("coffee-script", ["~> 2.2.0"])
-  
-  s.add_development_dependency("coffee-filter", ["~> 0.1.1"])
 end
 

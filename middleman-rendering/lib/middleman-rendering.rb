@@ -8,7 +8,7 @@ module Middleman
     autoload :Slim,         "middleman-rendering/slim"
     autoload :Markdown,     "middleman-rendering/markdown"
     autoload :CoffeeScript, "middleman-rendering/coffee_script"
-    autoload :Haml,         "middleman-rendering/compass"
+    autoload :Compass,      "middleman-rendering/compass"
     
     class << self
       def registered(app)

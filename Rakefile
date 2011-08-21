@@ -21,7 +21,7 @@ middleman_gems = [
 GEM_PATHS = middleman_gems.freeze
 
 def rake_command(command)
-  sh "#{Gem.ruby} -S rake #{command}", :verbose => true
+  sh "#{Gem.ruby} -S bundle exec rake #{command}", :verbose => true
 end
 
 %w(install gemspec package).each do |name|
@@ -75,5 +75,5 @@ end
 
 desc "Run tests for all middleman gems"
 task :test do
-  sh "cd middleman-core && #{Gem.ruby} -S rake test", :verbose => true
+  sh "cd middleman-core && #{Gem.ruby} -S bundle exec rake test", :verbose => true
 end
