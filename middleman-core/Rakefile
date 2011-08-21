@@ -1,0 +1,11 @@
+# coding:utf-8
+RAKE_ROOT = __FILE__
+
+require 'rubygems'
+require File.expand_path(File.dirname(__FILE__) + '/../gem_rake_helper')
+
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:test, 'Run features that should pass') do |t|
+  t.cucumber_opts = "--color --tags ~@wip --strict --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'}"
+end

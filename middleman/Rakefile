@@ -1,0 +1,28 @@
+# coding:utf-8
+RAKE_ROOT = __FILE__
+
+require 'rubygems'
+require File.expand_path(File.dirname(__FILE__) + '/../gem_rake_helper')
+
+########### CUSTOM TASKS ##########
+
+subgems = [
+  ["middleman-core",       "= #{gemspec.version}"],
+  ["middleman-rendering",  "= #{gemspec.version}"],
+  ["middleman-helpers",    "= #{gemspec.version}"],
+  ["middleman-livereload", "= #{gemspec.version}"]
+]
+
+task :package => "lib/middleman.rb"
+
+desc "Create middleman.rb"
+task "lib/middleman.rb" do
+  mkdir_p "lib"
+  File.open("lib/middleman.rb","w+") do |file|
+    file.puts "### AUTOMATICALLY GENERATED. DO NOT EDIT!"
+    subgems.each do |pair|
+      g, _ = pair
+      file.puts "require '#{g}'"
+    end
+  end
+end
