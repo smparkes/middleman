@@ -102,7 +102,11 @@ module Middleman::Cli
       output_file = File.join(self.class.shared_instance.build_dir, page.destination_path)
 
       begin
-        response = self.class.shared_rack.get(page.request_path.gsub(/\s/, "%20"))
+        rp = page.request_path
+        if rp != page.destination_path
+          rp = page.destination_path
+        end
+        response = self.class.shared_rack.get(rp.gsub(/\s/, "%20"))
         create_file(output_file, response.body, { :force => true })
       rescue
         say_status :error, output_file, :red

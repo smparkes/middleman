@@ -29,7 +29,7 @@ module Middleman::Sitemap
     end
   
     # Simple aliases
-    delegate :path, :source_file, :store, :app, :ext, :to => :page
+    delegate :destination_path, :path, :source_file, :store, :app, :ext, :to => :page
     
     # Clear internal frontmatter cache for file if it changes
     # @return [void]
